@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-03-08T12:00:00Z",
+  "period": "2026-03-01 to 2026-03-08",
+  "summary": "A landmark week for crypto regulation as the SEC proposed its long-awaited digital asset classification framework while the CFTC escalated DeFi enforcement. Meanwhile, the EU's MiCA Phase 2 went live across member states, and Asian regulators continued tightening exchange and stablecoin oversight.",
+  "events_analyzed": 10,
+  "by_jurisdiction": {
+    "US": [
+      {
+        "headline": "SEC Proposes Digital Asset Classification Framework",
+        "impact": "High",
+        "analysis": "This is the most significant US regulatory development in years. A clear taxonomy could finally resolve the 'is it a security?' question that has plagued the industry, potentially unlocking institutional capital."
+      },
+      {
+        "headline": "CFTC Files Charges Against DeFi Protocol Operators",
+        "impact": "High",
+        "analysis": "The CFTC's aggressive move against DeFi sets a precedent for enforcement against decentralized protocols. DeFi teams operating in or serving US users face heightened legal risk."
+      },
+      {
+        "headline": "House Committee Advances Stablecoin Legislation",
+        "impact": "Medium",
+        "analysis": "Bipartisan support for the Payment Stablecoins Act signals that federal stablecoin regulation is increasingly likely in 2026, which would provide regulatory clarity for issuers like Circle and Paxos."
+      }
+    ],
+    "EU": [
+      {
+        "headline": "MiCA Phase 2 Takes Effect Across EU",
+        "impact": "High",
+        "analysis": "Full MiCA implementation represents the world's most comprehensive crypto regulatory framework. Non-compliant CASPs must cease EU operations, creating a compliance moat for authorized firms."
+      },
+      {
+        "headline": "ECB Announces Digital Euro Pilot Timeline",
+        "impact": "Medium",
+        "analysis": "The Q3 2026 digital euro pilot signals the ECB's commitment to a retail CBDC. Privacy-preserving design choices will be closely watched by other central banks and the crypto industry."
+      },
+      {
+        "headline": "Bank of England Digital Pound Consultation Response",
+        "impact": "Low",
+        "analysis": "The BoE's cautious wholesale-only approach suggests the UK digital pound remains years from retail deployment, providing breathing room for private stablecoin issuers."
+      }
+    ],
+    "Asia": [
+      {
+        "headline": "Japan FSA Revises Exchange Licensing Criteria",
+        "impact": "Medium",
+        "analysis": "Enhanced cold storage and audit requirements raise the compliance bar for Japanese exchanges. Smaller operators may struggle to meet the new standards, potentially driving market consolidation."
+      },
+      {
+        "headline": "Singapore MAS Stablecoin Framework Tightened",
+        "impact": "Medium",
+        "analysis": "Singapore's move to require sovereign-bond-backed reserves and real-time attestation sets a gold standard for stablecoin regulation, reinforcing its position as a leading crypto hub."
+      },
+      {
+        "headline": "South Korea Passes Crypto Investor Protection Act",
+        "impact": "High",
+        "analysis": "Mandatory asset segregation and insurance funds address the failures exposed by exchange collapses. This legislation could serve as a model for other Asian jurisdictions."
+      }
+    ],
+    "Global": [
+      {
+        "headline": "FATF Lowers Travel Rule Threshold to $500",
+        "impact": "High",
+        "analysis": "The lower threshold and extension to DeFi/unhosted wallets will significantly increase compliance burdens for exchanges and wallet providers worldwide. Implementation challenges remain substantial."
+      }
+    ]
+  },
+  "outlook": "Expect accelerating regulatory convergence as MiCA sets the pace and US legislators respond with competing frameworks. The FATF's expanded travel rule scope will be the near-term compliance challenge for the industry globally."
+}

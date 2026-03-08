@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌰 Regulatory Pulse — AI-Powered Crypto Regulation Intelligence</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff;
+      --high: #f85149; --medium: #d29922; --low: #3fb950;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+    header { text-align: center; padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    header h1 { font-size: 2.2rem; margin-bottom: 0.3rem; }
+    header p { color: var(--muted); font-size: 1rem; }
+    .meta { display: flex; gap: 1.5rem; justify-content: center; margin-top: 0.8rem; font-size: 0.85rem; color: var(--muted); }
+    .summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+    .summary-card h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 0.6rem; }
+    .summary-card .outlook { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-style: italic; color: var(--muted); }
+    .jurisdiction { margin-bottom: 2rem; }
+    .jurisdiction h2 { font-size: 1.2rem; margin-bottom: 0.8rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+    .event-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 0.8rem; }
+    .event-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .event-meta { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 10px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+    .badge-high { background: rgba(248,81,73,0.15); color: var(--high); }
+    .badge-medium { background: rgba(210,153,34,0.15); color: var(--medium); }
+    .badge-low { background: rgba(63,185,80,0.15); color: var(--low); }
+    .analysis { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+    .event-card a { color: var(--accent); text-decoration: none; }
+    .event-card a:hover { text-decoration: underline; }
+    .loading, .error { text-align: center; padding: 3rem; color: var(--muted); }
+    footer { text-align: center; padding: 2rem 0; border-top: 1px solid var(--border); margin-top: 2rem; font-size: 0.8rem; color: var(--muted); }
+    .flag { margin-right: 0.3rem; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      .meta { flex-direction: column; gap: 0.3rem; }
+      .container { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌰 Regulatory Pulse</h1>
+      <p>AI-Powered Crypto Regulation Intelligence</p>
+      <div class="meta">
+        <span id="period"></span>
+        <span id="event-count"></span>
+      </div>
+    </header>
+    <div id="content"><div class="loading">Loading regulatory intelligence...</div></div>
+    <footer>
+      <p>Powered by <a href="https://rapidapi.com/CPWatch/api/cpw-tracker" style="color:var(--accent)">CPW API</a> &amp; <a href="https://docs.github.com/en/github-models" style="color:var(--accent)">GitHub Models</a> 🌰</p>
+      <p id="updated" style="margin-top:0.3rem"></p>
+    </footer>
+  </div>
+  <script>
+    const JURISDICTIONS = [
+      { key: 'US', label: 'United States', flag: '🇺🇸' },
+      { key: 'EU', label: 'European Union', flag: '🇪🇺' },
+      { key: 'Asia', label: 'Asia-Pacific', flag: '🌏' },
+      { key: 'Global', label: 'Global', flag: '🌐' }
+    ];
+
+    function impactBadge(level) {
+      const l = (level || 'medium').toLowerCase();
+      return `<span class="badge badge-${l}">${level || 'Medium'}</span>`;
+    }
+
+    function formatDate(iso) {
+      return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function renderBrief(brief, events) {
+      const el = document.getElementById('content');
+      const periodEl = document.getElementById('period');
+      const countEl = document.getElementById('event-count');
+      const updatedEl = document.getElementById('updated');
+
+      if (brief) {
+        periodEl.textContent = `📅 ${brief.period}`;
+        countEl.textContent = `📊 ${brief.events_analyzed} events analyzed`;
+        updatedEl.textContent = `Last updated: ${formatDate(brief.generated_at)}`;
+      }
+
+      let html = '';
+
+      if (brief && brief.summary) {
+        html += `<div class="summary-card">
+          <h2>🌰 Executive Summary</h2>
+          <p>${brief.summary}</p>
+          ${brief.outlook ? `<div class="outlook">📈 <strong>Outlook:</strong> ${brief.outlook}</div>` : ''}
+        </div>`;
+      }
+
+      if (brief && brief.by_jurisdiction) {
+        for (const j of JURISDICTIONS) {
+          const items = brief.by_jurisdiction[j.key];
+          if (!items || items.length === 0) continue;
+          html += `<div class="jurisdiction"><h2><span class="flag">${j.flag}</span>${j.label}</h2>`;
+          for (const item of items) {
+            const matchingEvent = events.find(e => e.title && item.headline && e.title.toLowerCase().includes(item.headline.toLowerCase().slice(0, 20)));
+            html += `<div class="event-card">
+              <h3>${item.headline}</h3>
+              <div class="event-meta">
+                ${impactBadge(item.impact)}
+                ${matchingEvent ? `<span>${matchingEvent.source}</span><span>${formatDate(matchingEvent.timestamp)}</span>` : ''}
+                ${matchingEvent && matchingEvent.url ? `<a href="${matchingEvent.url}" target="_blank">Source ↗</a>` : ''}
+              </div>
+              ${matchingEvent && matchingEvent.summary ? `<p style="font-size:0.9rem">${matchingEvent.summary}</p>` : ''}
+              ${item.analysis ? `<div class="analysis">🌰 <strong>Analysis:</strong> ${item.analysis}</div>` : ''}
+            </div>`;
+          }
+          html += '</div>';
+        }
+      } else if (events.length > 0) {
+        html += '<div class="jurisdiction"><h2>📋 Recent Events</h2>';
+        for (const e of events) {
+          html += `<div class="event-card">
+            <h3>${e.title}</h3>
+            <div class="event-meta">
+              <span>${e.source || ''}</span><span>${formatDate(e.timestamp)}</span>
+              ${e.url ? `<a href="${e.url}" target="_blank">Source ↗</a>` : ''}
+            </div>
+            <p style="font-size:0.9rem">${e.summary || ''}</p>
+          </div>`;
+        }
+        html += '</div>';
+      }
+
+      el.innerHTML = html || '<div class="error">No regulatory events found.</div>';
+    }
+
+    async function loadData() {
+      let brief = null, events = [];
+      try { events = await (await fetch('data/events.json')).json(); } catch {}
+      try { brief = await (await fetch('data/brief.json')).json(); } catch {}
+      if (!brief && events.length === 0) {
+        document.getElementById('content').innerHTML = '<div class="error">No data available. Run the pipeline to fetch regulatory events.</div>';
+        return;
+      }
+      renderBrief(brief, events);
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

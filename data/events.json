@@ -1,0 +1,72 @@
+[
+  {
+    "timestamp": "2026-03-07T14:23:00Z",
+    "title": "SEC Proposes New Framework for Digital Asset Classification",
+    "source": "Reuters",
+    "url": "https://www.reuters.com/technology/sec-digital-asset-framework-2026",
+    "summary": "The SEC released a proposed rulemaking that would establish a clear taxonomy for digital assets, distinguishing between securities tokens, utility tokens, and decentralized protocol tokens. Industry groups have 90 days to comment."
+  },
+  {
+    "timestamp": "2026-03-06T09:15:00Z",
+    "title": "EU MiCA Regulation Phase 2 Implementation Begins",
+    "source": "CoinDesk",
+    "url": "https://www.coindesk.com/policy/mica-phase-2-implementation",
+    "summary": "The second phase of the Markets in Crypto-Assets regulation takes effect across EU member states, requiring all crypto-asset service providers to obtain authorization and comply with enhanced consumer protection standards."
+  },
+  {
+    "timestamp": "2026-03-05T17:42:00Z",
+    "title": "Japan FSA Updates Crypto Exchange Licensing Requirements",
+    "source": "The Block",
+    "url": "https://www.theblock.co/japan-fsa-licensing-update",
+    "summary": "Japan's Financial Services Agency announced revised licensing criteria for crypto exchanges, mandating enhanced cold storage requirements and quarterly third-party audits of reserve assets."
+  },
+  {
+    "timestamp": "2026-03-05T11:30:00Z",
+    "title": "CFTC Enforcement Action Against Unregistered DeFi Protocol",
+    "source": "Bloomberg",
+    "url": "https://www.bloomberg.com/news/cftc-defi-enforcement",
+    "summary": "The CFTC filed charges against operators of a decentralized derivatives protocol for offering unregistered futures contracts to US persons, marking the agency's most aggressive action against DeFi to date."
+  },
+  {
+    "timestamp": "2026-03-04T20:10:00Z",
+    "title": "Bank of England Publishes Digital Pound Consultation Response",
+    "source": "Financial Times",
+    "url": "https://www.ft.com/content/boe-digital-pound",
+    "summary": "The Bank of England published its response to the digital pound consultation, signaling a cautious approach with a proposed pilot program limited to wholesale interbank settlements in 2027."
+  },
+  {
+    "timestamp": "2026-03-04T08:55:00Z",
+    "title": "Singapore MAS Tightens Stablecoin Regulatory Framework",
+    "source": "CoinTelegraph",
+    "url": "https://cointelegraph.com/news/singapore-mas-stablecoin-framework",
+    "summary": "The Monetary Authority of Singapore introduced new requirements for stablecoin issuers, including mandatory 1:1 reserve backing with sovereign bonds and real-time attestation by approved auditors."
+  },
+  {
+    "timestamp": "2026-03-03T15:20:00Z",
+    "title": "US House Financial Services Committee Advances Stablecoin Bill",
+    "source": "Politico",
+    "url": "https://www.politico.com/stablecoin-bill-advances",
+    "summary": "The House Financial Services Committee voted 32-17 to advance the Payment Stablecoins Act, which would establish a federal licensing framework for stablecoin issuers and require monthly reserve disclosures."
+  },
+  {
+    "timestamp": "2026-03-02T13:45:00Z",
+    "title": "FATF Updates Travel Rule Guidance for Virtual Assets",
+    "source": "Reuters",
+    "url": "https://www.reuters.com/business/fatf-travel-rule-update",
+    "summary": "The Financial Action Task Force released updated guidance on the travel rule for virtual asset transfers, lowering the threshold from $1,000 to $500 and extending requirements to cover DeFi protocols and unhosted wallets."
+  },
+  {
+    "timestamp": "2026-03-02T07:30:00Z",
+    "title": "South Korea National Assembly Passes Crypto Investor Protection Act",
+    "source": "Korea Herald",
+    "url": "https://www.koreaherald.com/crypto-investor-protection",
+    "summary": "South Korea's National Assembly passed comprehensive legislation requiring exchanges to segregate customer assets, maintain insurance funds, and implement circuit breakers for volatile token trading."
+  },
+  {
+    "timestamp": "2026-03-01T16:00:00Z",
+    "title": "ECB Signals Timeline for Digital Euro Pilot Program",
+    "source": "European Central Bank",
+    "url": "https://www.ecb.europa.eu/press/digital-euro-pilot",
+    "summary": "ECB President announced a Q3 2026 launch date for the digital euro pilot, involving five major eurozone banks and limited to person-to-person payments up to €500 per transaction."
+  }
+]
